@@ -1,6 +1,8 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio_dario/providers/page_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../animations/entryAnimatio.dart';
 
@@ -44,6 +46,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);
+
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       width: navbarsize,
@@ -77,11 +82,12 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
-                        children: navBarModel.titles.map<Widget>(
-                          (title){
-                            return optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: title);
-                          }
-                        ).toList(),
+                        children: [
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "About", onpressed: ()=>pageProvider.goTo(0)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Skills", onpressed: ()=>pageProvider.goTo(1)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Projects", onpressed: ()=>pageProvider.goTo(2)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "contact", onpressed: ()=>pageProvider.goTo(3)),
+                        ]
                       );
                     }),
                 ),
@@ -128,9 +134,9 @@ class optionsNavBar extends StatelessWidget {
     super.key,
     required this.navBarModel,
     required this.navbarsize,
-    required this.isSideNavOpen, required this.title,
+    required this.isSideNavOpen, required this.title, required this.onpressed,
   });
-
+  final Function onpressed;
   final String title;
   final NavBarModel navBarModel;
   final double navbarsize;
@@ -147,48 +153,51 @@ class optionsNavBar extends StatelessWidget {
         navBarModel.setHoveredTitle(null);
         print('salio');
       },
-      child: SizedBox(
-        width: navbarsize-70,
-        child: EntryAnimation(
-          delay: navBarModel.titles.indexOf(title)*100,
-          isTriggered: isSideNavOpen,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AnimatedDefaultTextStyle(
-                duration: const Duration(milliseconds: 300),
-                style: navBarModel.hoveredTitle == null 
-                  ? TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500
-                  )
-                  : navBarModel.hoveredTitle== title
-                  ? TextStyle(
-                      color: Colors.white,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500
-                  ):TextStyle(
-                      color: Colors.white60,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500
-                  )
-                  ,
-                child: Text(title)
-              ),
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                height: 3.0,
-                width: navBarModel.hoveredTitle == title? navbarsize-70: 0.0,
-                margin: const EdgeInsets.only(
-                  top: 5.0, bottom: 30.0
+      child: GestureDetector(
+        onTap: ()=>onpressed(),
+        child: SizedBox(
+          width: navbarsize-70,
+          child: EntryAnimation(
+            delay: navBarModel.titles.indexOf(title)*100,
+            isTriggered: isSideNavOpen,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AnimatedDefaultTextStyle(
+                  duration: const Duration(milliseconds: 300),
+                  style: navBarModel.hoveredTitle == null 
+                    ? TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.w500
+                    )
+                    : navBarModel.hoveredTitle== title
+                    ? TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.w500
+                    ):TextStyle(
+                        color: Colors.white60,
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.w500
+                    )
+                    ,
+                  child: Text(title)
                 ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0)
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  height: 3.0,
+                  width: navBarModel.hoveredTitle == title? navbarsize-70: 0.0,
+                  margin: const EdgeInsets.only(
+                    top: 5.0, bottom: 30.0
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0)
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

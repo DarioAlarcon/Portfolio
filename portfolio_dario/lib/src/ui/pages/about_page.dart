@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_dario/providers/page_provider.dart';
 import 'package:portfolio_dario/src/ui/views/about_view.dart';
 import 'package:portfolio_dario/src/ui/views/contact_view.dart';
 import 'package:portfolio_dario/src/ui/views/projects_view.dart';
 import 'package:portfolio_dario/src/ui/views/skills_view.dart';
 import 'package:portfolio_dario/src/widgets/navBar.dart';
 import 'package:portfolio_dario/src/widgets/responsive_widget.dart';
+import 'package:provider/provider.dart';
 
 class AboutPage extends ResponsiveWidget {
 
@@ -58,7 +60,9 @@ class _about_body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);
     return PageView(
+      controller: pageProvider.scrollController,
       scrollDirection: Axis.vertical,
       children: [
         AboutView(),

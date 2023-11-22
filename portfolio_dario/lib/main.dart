@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_dario/providers/page_provider.dart';
 import 'package:portfolio_dario/router/router.dart';
 import 'package:portfolio_dario/src/ui/pages/about_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AppState());
+}
+
+class AppState extends StatelessWidget {
+  const AppState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => PageProvider())
+    ],
+    child: MyApp(),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {
