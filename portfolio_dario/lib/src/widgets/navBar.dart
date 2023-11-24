@@ -68,7 +68,14 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                 height:  MediaQuery.of(context).size.height,
                 width: navbarsize,
                 decoration: BoxDecoration(
-                  color: Color(0xff355264),
+                   boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  offset: Offset(5, 5),
+                  blurRadius: 10,
+                ),
+              ],
+                  color: Color(0xff355269),
                   borderRadius: BorderRadius.horizontal(
                     right: Radius.elliptical(isSideNavOpen? 0.0:
                       navbarsize, MediaQuery.of(context).size.height/2
@@ -86,7 +93,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "About", onpressed: ()=>pageProvider.goTo(0)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Skills", onpressed: ()=>pageProvider.goTo(1)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Projects", onpressed: ()=>pageProvider.goTo(2)),
-                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "contact", onpressed: ()=>pageProvider.goTo(3)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Contact", onpressed: ()=>pageProvider.goTo(3)),
                         ]
                       );
                     }),
@@ -144,6 +151,7 @@ class optionsNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageProvider = Provider.of<PageProvider>(context);
     return MouseRegion(
       onEnter: (event) {
         navBarModel.setHoveredTitle(title);
@@ -187,7 +195,8 @@ class optionsNavBar extends StatelessWidget {
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   height: 3.0,
-                  width: navBarModel.hoveredTitle == title? navbarsize-70: 0.0,
+                  width:  pageProvider.getCurrentIndex()== title? navbarsize-70:
+                  navBarModel.hoveredTitle == title? navbarsize-70: 0.0,
                   margin: const EdgeInsets.only(
                     top: 5.0, bottom: 30.0
                   ),

@@ -85,15 +85,7 @@ class tablet_aboutPage extends StatelessWidget {
         child: Stack(
           children: [
             _about_body(),
-            /*Positioned(
-              left: 20,
-              top: 20,
-              child: Container(
-                width: 150,
-                height: 50,
-                color: Colors.amber,
-              )
-            )*/
+            Container(width: 50,height: 100,color: Colors.red,),
             NavBar()
           ],
         ),
@@ -112,15 +104,15 @@ class desktop_aboutPage extends StatelessWidget {
         child: Stack(
           children: [
             _about_body(),
-            /*Positioned(
-              left: 20,
-              top: 20,
-              child: Container(
-                width: 150,
-                height: 50,
-                color: Colors.amber,
-              )
-            )*/
+            Container(
+              margin: EdgeInsets.only(left: 5, top: 5),
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                color: Color(0xff355264),
+              ),  
+            ),
             NavBar()
           ],
         ),
