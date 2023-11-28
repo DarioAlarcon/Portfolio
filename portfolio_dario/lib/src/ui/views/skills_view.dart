@@ -5,8 +5,6 @@ import '../../widgets/skillTarget.dart';
 class skillsView extends ResponsiveWidget {
   const skillsView({super.key});
 
-  
-  
   @override
   Widget buildDesktop(BuildContext context) {
     return skillsDektop();
@@ -32,6 +30,7 @@ class skillsDektop extends StatelessWidget {
       color: Color(0xff355264),
       height: MediaQuery.of(context).size.height,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             tittle(),
@@ -158,60 +157,65 @@ class targets extends StatelessWidget {
     );
   }
 }
+
+
 class tabletSkills extends StatelessWidget {
   const tabletSkills({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xff355264),
-      height: MediaQuery.of(context).size.height+100,
-      child: Column(
-      children: [
-        tittle(),
-        dividerLine(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                skilltarge(
-              imageRoute: 'assets/images/css.png', 
-              tooltipMessage: 'css',),
-                 skilltarge(
-                imageRoute: 'assets/images/html.jpg', 
-              tooltipMessage: 'html',)
-              ],
-            ),
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                skilltarge(
-                imageRoute: 'assets/images/javascript.png', 
-              tooltipMessage: 'javascript',),
-                 skilltarge(
-                imageRoute: 'assets/images/dart.png', 
-              tooltipMessage: 'dart',)
-              ],
-            ),
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                skilltarge(
-                imageRoute: 'assets/images/flutter.png', 
-              tooltipMessage: 'flutter',),
-                 skilltarge(
-                imageRoute: 'assets/images/git.png', 
-              tooltipMessage: 'git',)
-              ],
-            ),
-          ],
-        )
-      ],
+      height: MediaQuery.of(context).size.height+120,
+      child: SingleChildScrollView(
+        child: Column(
+        children: [
+          SizedBox(height: 50,),
+          tittle(),
+          dividerLine(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  skilltarge(
+                imageRoute: 'assets/images/css.png', 
+                tooltipMessage: 'css',),
+                   skilltarge(
+                  imageRoute: 'assets/images/html.jpg', 
+                tooltipMessage: 'html',)
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  skilltarge(
+                  imageRoute: 'assets/images/javascript.png', 
+                tooltipMessage: 'javascript',),
+                   skilltarge(
+                  imageRoute: 'assets/images/dart.png', 
+                tooltipMessage: 'dart',)
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  skilltarge(
+                  imageRoute: 'assets/images/flutter.png', 
+                tooltipMessage: 'flutter',),
+                   skilltarge(
+                  imageRoute: 'assets/images/git.png', 
+                tooltipMessage: 'git',)
+                ],
+              ),
+              SizedBox(height: 20,),
+            ],
+          )
+        ],
+        ),
       ),
     );
   }

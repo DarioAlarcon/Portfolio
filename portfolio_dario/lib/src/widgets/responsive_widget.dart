@@ -13,7 +13,7 @@ abstract class ResponsiveWidget extends StatelessWidget {
       builder:(context, constraints) {
           if (constraints.maxWidth<=450) {
             return buildMobile(context);
-          }else if(constraints.maxWidth<=780){
+          }else if(constraints.maxWidth<=1000){
             return buildTablet(context);
           }else{
             return buildDesktop(context);

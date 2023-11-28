@@ -166,10 +166,11 @@ class tabletContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
-      height: MediaQuery.of(context).size.height*0.87,
+      color: Colors.white,
+      height: MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           profileImage(),
           SizedBox(height: 20,),

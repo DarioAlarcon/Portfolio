@@ -64,13 +64,13 @@ class enlaces extends StatelessWidget {
           label: 'Sigueme', 
           url: '_',
         ),
-        SizedBox(width: 150,),
+        SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
         iconLink(
           imageRoute: 'assets/images/mail.png',
           label: 'Escribeme', 
           url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqXxQWzzzRDQhmDPXsknDNPCSqxrlrqmlCSdVswXHPjgBhlmfLGSxvrcHsqKvWzkPkcnxV',
         ),
-        SizedBox(width: 150,),
+        SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
         iconLink(
           imageRoute: 'assets/images/linkedin.png',
           label: 'Contactame', 
@@ -89,7 +89,7 @@ class texto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:  MediaQuery.of(context).size.width<1000?CrossAxisAlignment.center: CrossAxisAlignment.start,
       children: [
         Text(
           'Contáctame',
@@ -121,6 +121,15 @@ class tabletContact extends StatelessWidget {
     return Container(
       color: Color(0xff355264),
       height: MediaQuery.of(context).size.height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 50,),
+          texto(),
+          SizedBox(height: 100,),
+          enlaces()
+        ],
+      ),
     );
   }
 }
