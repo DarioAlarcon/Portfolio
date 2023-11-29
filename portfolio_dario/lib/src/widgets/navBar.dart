@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_dario/providers/page_provider.dart';
 import 'package:provider/provider.dart';

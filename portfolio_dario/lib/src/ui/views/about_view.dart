@@ -13,7 +13,7 @@ class AboutView extends ResponsiveWidget {
   
   @override
   Widget buildMobile(BuildContext context) {
-    return Scaffold(body: Center(child: Text('pequeño')),);
+    return mobileContent();
   }
   
   @override
@@ -127,16 +127,17 @@ class Dariotext extends StatelessWidget {
   const Dariotext({
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    double fontSize = MediaQuery.of(context).size.width<520? 37:70;
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           'Soy',
           style: TextStyle(
-            fontSize: 70,
+            fontSize: fontSize,
             fontWeight: FontWeight.bold
           ),
         ),
@@ -144,14 +145,14 @@ class Dariotext extends StatelessWidget {
           ' Dario',
           style: TextStyle(
             color: Color(0xffD7C37B),
-            fontSize: 70,
+            fontSize: fontSize,
             fontWeight: FontWeight.bold
           ),
         ),
         Text(
           ' Alarcon',
           style: TextStyle(
-            fontSize: 70,
+            fontSize: fontSize,
             fontWeight: FontWeight.bold
           ),
         )
@@ -201,3 +202,45 @@ class tabletContent extends StatelessWidget {
   }
 }
 //
+
+class mobileContent extends StatelessWidget {
+  const mobileContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: 30,),
+          profileImage(),
+          SizedBox(height: 20,),
+          Container(
+            decoration: BoxDecoration(
+            color: Colors.white,
+            ),
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: 40,
+            child: Text(
+              'Desarrollador Frontend', 
+              style: TextStyle(
+                color: Color(0xff355264),
+                fontSize: 25,
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 84,
+            color: Colors.white,
+            child: Dariotext()
+          ),
+        ],
+      ),
+    );
+  }
+}

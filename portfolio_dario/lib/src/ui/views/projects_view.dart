@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../widgets/responsive_widget.dart';
@@ -17,8 +16,7 @@ class ProjectsView extends ResponsiveWidget {
   
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    throw UnimplementedError();
+    return mobileProject();
   }
   
   @override
@@ -219,7 +217,7 @@ class tittle extends StatelessWidget {
         Text(
           'Mis',
           style: TextStyle(
-            fontSize: 70,
+            fontSize:MediaQuery.of(context).size.width<1000?50: 70,
             color: MediaQuery.of(context).size.width<1000?Colors.white: Colors.black,
             fontWeight: FontWeight.bold
           ),
@@ -227,7 +225,7 @@ class tittle extends StatelessWidget {
         Text(
           ' trabajos',
           style: TextStyle(
-            fontSize: 70,
+            fontSize: MediaQuery.of(context).size.width<1000?50: 70,
             color: Color(0xffD7C37B),
             fontWeight: FontWeight.bold
           ),
@@ -309,6 +307,30 @@ class miSlideShow extends StatelessWidget {
             enlaceDeploy: '',
           )
       ],
+    );
+  }
+}
+
+class mobileProject extends StatelessWidget {
+  const mobileProject ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height+50,
+        child: Column(
+          children: [
+            header(),
+            Container(
+              child: miSlideShow(),
+              width: 390,
+              height: 550,
+            )
+          ]
+        ),
+      ),
     );
   }
 }

@@ -12,8 +12,7 @@ class skillsView extends ResponsiveWidget {
   
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    throw UnimplementedError();
+    return mobileSkills();
   }
   
   @override
@@ -71,7 +70,16 @@ class tittle extends StatelessWidget {
 
     double size = MediaQuery.of(context).size.width;
     double tamano = size<800? 50:70;
-    return Row(
+    return size<500?
+    Text(
+          'Habilidades',
+          style: TextStyle(
+            fontSize: tamano,
+            color: Colors.white,
+            fontWeight: FontWeight.bold
+          ),
+    )
+    : Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
@@ -215,6 +223,69 @@ class tabletSkills extends StatelessWidget {
             ],
           )
         ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class mobileSkills extends StatelessWidget {
+  const mobileSkills({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xff355264),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 50,),
+              tittle(),
+              dividerLine(),
+              Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    skilltarge(
+                  imageRoute: 'assets/images/css.png', 
+                  tooltipMessage: 'css',),
+                     skilltarge(
+                    imageRoute: 'assets/images/html.jpg', 
+                  tooltipMessage: 'html',)
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    skilltarge(
+                    imageRoute: 'assets/images/javascript.png', 
+                  tooltipMessage: 'javascript',),
+                     skilltarge(
+                    imageRoute: 'assets/images/dart.png', 
+                  tooltipMessage: 'dart',)
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    skilltarge(
+                    imageRoute: 'assets/images/flutter.png', 
+                  tooltipMessage: 'flutter',),
+                     skilltarge(
+                    imageRoute: 'assets/images/git.png', 
+                  tooltipMessage: 'git',)
+                  ],
+                ),
+                SizedBox(height: 20,),
+              ],
+            )
+          ],
         ),
       ),
     );

@@ -13,7 +13,46 @@ class iconLink extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textColor = useState<Color>(Colors.transparent);
-    return MouseRegion(
+    return MediaQuery.of(context).size.width<500?
+    MouseRegion(
+      onEnter:(value){
+          textColor.value = Color.fromARGB(255, 60, 97, 120);
+      },
+      onExit: (value){
+          textColor.value =Colors.transparent;
+      },
+      child: GestureDetector(
+        onTap: ()=>launchUrl(Uri.parse(url)),
+        child: Container(
+          decoration: BoxDecoration(
+            color: textColor.value,
+            borderRadius: BorderRadius.all(Radius.circular(15))
+          ),
+          child: Row(
+            children: [
+              Container(
+                height: 150,
+                width: 150,
+                child: Image.asset(
+                  imageRoute
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                label,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    ) 
+    :MouseRegion(
       onEnter:(value){
           textColor.value = Color.fromARGB(255, 60, 97, 120);
       },
