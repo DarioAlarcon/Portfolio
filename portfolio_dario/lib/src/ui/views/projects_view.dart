@@ -297,14 +297,21 @@ class miSlideShow extends StatelessWidget {
             imageRoute: 'assets/images/bunkapp.png', 
             description: 'App que sirve de guia para los practicantes o interesados en el karate', 
             enlaceGithub: 'https://github.com/DarioAlarcon/bunkapp', 
-            enlaceDeploy: '',
+            enlaceDeploy: 'https://bunkapp-deploy.vercel.app/#/',
           ),
           projectTarget(
             imageRoute: 'assets/images/due.png', 
             appName: 'Due', 
             description: 'App diseñada para llevar la cuenta de los diferentes deudores', 
             enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
-            enlaceDeploy: '',
+            enlaceDeploy: 'https://due-deploy.vercel.app/#/',
+          ),
+          projectTarget(
+            imageRoute: 'assets/images/doona.png', 
+            appName: 'Dooma', 
+            description: 'App diseñada en flutterflow, para llevar a cabo tu manejo de tareas', 
+            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
+            enlaceDeploy: 'https://doona.flutterflow.app/',
           )
       ],
     );

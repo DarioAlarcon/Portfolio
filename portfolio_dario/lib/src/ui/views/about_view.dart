@@ -53,7 +53,7 @@ class profileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: MediaQuery.of(context).size.width<1000? EdgeInsets.only(top: 0) :EdgeInsets.only(top: 80),
+      margin: MediaQuery.of(context).size.width<1000? EdgeInsets.only(top: 0, left: 10, right: 10) :EdgeInsets.only(top: 80),
       height: 493,
       width: 347,
       decoration: BoxDecoration(
@@ -130,7 +130,7 @@ class Dariotext extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    double fontSize = MediaQuery.of(context).size.width<520? 37:70;
+    double fontSize = MediaQuery.of(context).size.width<550? 37:70;
     return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

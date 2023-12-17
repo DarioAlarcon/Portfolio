@@ -69,7 +69,7 @@ class tittle extends StatelessWidget {
   Widget build(BuildContext context) {
 
     double size = MediaQuery.of(context).size.width;
-    double tamano = size<800? 50:70;
+    double tamano = size<800? 40:70;
     return size<500?
     Text(
           'Habilidades',

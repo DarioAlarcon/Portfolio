@@ -14,8 +14,8 @@ class skilltarge extends StatelessWidget {
         color: Color(0xff1F3C4F)
       ),
       child: Container(
-        height: MediaQuery.of(context).size.width<500? 160: 220,
-        width: MediaQuery.of(context).size.width<500? 160: 220,
+        height: MediaQuery.of(context).size.width<500? 140: 220,
+        width: MediaQuery.of(context).size.width<500? 140: 220,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(15))

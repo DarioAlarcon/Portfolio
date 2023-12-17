@@ -31,8 +31,8 @@ class iconLink extends HookConsumerWidget {
           child: Row(
             children: [
               Container(
-                height: 150,
-                width: 150,
+                height: MediaQuery.of(context).size.width<500?120: 150,
+                width: MediaQuery.of(context).size.width<500?120: 150,
                 child: Image.asset(
                   imageRoute
                 ),

@@ -119,7 +119,7 @@ class texto extends StatelessWidget {
           'Contáctame',
           style: TextStyle(
             color: Color(0xffd7c37b),
-            fontSize: MediaQuery.of(context).size.width<500?50:70,
+            fontSize: MediaQuery.of(context).size.width<500?45:70,
             fontWeight: FontWeight.bold
           ),
         ),
@@ -127,7 +127,7 @@ class texto extends StatelessWidget {
           'si quieres que trabajemos juntos',
           style: TextStyle(
             color: Colors.white,
-            fontSize: MediaQuery.of(context).size.width<500?25:35,
+            fontSize: MediaQuery.of(context).size.width<500?20:35,
             fontWeight: FontWeight.bold
           ),
         )
