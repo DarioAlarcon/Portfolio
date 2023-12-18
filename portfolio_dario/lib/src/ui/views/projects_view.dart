@@ -72,6 +72,14 @@ class targets extends StatelessWidget {
             description: 'App diseñada para llevar la cuenta de los diferentes deudores', 
             enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
             enlaceDeploy: '',
+          ),
+          SizedBox(width: 70,),
+          projectTarget(
+            imageRoute: 'assets/images/doona.png', 
+            appName: 'Dooma', 
+            description: 'App diseñada en flutterflow, para llevar a cabo tu manejo de tareas', 
+            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
+            enlaceDeploy: 'https://doona.flutterflow.app/',
           )
         ],
       ),
