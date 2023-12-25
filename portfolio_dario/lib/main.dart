@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
+      ), 
       initialRoute: '/about',
       onGenerateRoute: Flurorouter.router.generator,
     );

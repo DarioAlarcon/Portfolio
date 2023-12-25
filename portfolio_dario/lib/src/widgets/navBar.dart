@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_dario/providers/page_provider.dart';
+import 'package:portfolio_dario/src/ui/views/about_view.dart';
 import 'package:provider/provider.dart';
 
 import '../animations/entryAnimatio.dart';
@@ -87,7 +88,16 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
-                        children: [
+                        children: MediaQuery.of(context).size.width<780?[
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "About", onpressed: ()=>pageProvider.goTo(0)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Skills", onpressed: ()=>pageProvider.goTo(1)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Projects", onpressed: ()=>pageProvider.goTo(2)),
+                          optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Contact", onpressed: ()=>pageProvider.goTo(3)),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20, top: 250),
+                            child: cvButton(color: Color(0xffD7C37B), fontsize: 24, height: 50,),
+                          )
+                        ]: [
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "About", onpressed: ()=>pageProvider.goTo(0)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Skills", onpressed: ()=>pageProvider.goTo(1)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Projects", onpressed: ()=>pageProvider.goTo(2)),

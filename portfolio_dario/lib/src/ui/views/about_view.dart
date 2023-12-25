@@ -56,10 +56,12 @@ class profileImage extends StatelessWidget {
       margin: MediaQuery.of(context).size.width<1000? EdgeInsets.only(top: 0, left: 10, right: 10) :EdgeInsets.only(top: 80),
       height: 493,
       width: 347,
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       decoration: BoxDecoration(
         color: Color(0xffD7C37B),
         borderRadius: BorderRadius.all(Radius.circular(15))
       ),
+      child: Image.asset("assets/images/dario.jpg")
     );
   }
 }
@@ -96,29 +98,42 @@ class textDescription extends StatelessWidget {
           SizedBox(height: 60,),
           Padding(
             padding: const EdgeInsets.only(left: 90),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff355264),
-                  shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))
-                  )  
-              ),
-              onPressed: ()=>launchUrl(Uri.parse("https://drive.google.com/file/d/1YubhDlJI31KPfTO5OiKhf1wM-feKTVU2/view?usp=drive_link")),
-              child: Container(
-                alignment: Alignment.center,
-                height: 70,
-                child: Text(
-                  'hoja de vida', 
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 36
-                  ),
-                ),
-              )
-            ),
+            child: cvButton(color: Color(0xff355264), fontsize: 36, height: 70,),
           ),
         ],
       ),
+    );
+  }
+}
+
+class cvButton extends StatelessWidget {
+  const cvButton({
+    super.key, required this.color, required this.fontsize, required this.height,
+  });
+  final Color color;
+  final double fontsize;
+  final double height;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))
+          )  
+      ),
+      onPressed: ()=>launchUrl(Uri.parse("https://drive.google.com/file/d/1_QkZQm4JxhUyYmTqZJy4yPEX4sK0h5am/view?usp=sharing")),
+      child: Container(
+        alignment: Alignment.center,
+        height: height,
+        child: Text(
+          'hoja de vida', 
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: fontsize
+          ),
+        ),
+      )
     );
   }
 }

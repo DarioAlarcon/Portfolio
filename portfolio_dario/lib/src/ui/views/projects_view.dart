@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_dario/src/widgets/projectTargetdesktop.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/projectTarget.dart';
 import '../../widgets/responsive_widget.dart';
 import '../../widgets/slideshow.dart';
 
@@ -25,126 +27,6 @@ class ProjectsView extends ResponsiveWidget {
   }
 }
 
-class projectsDesktop extends StatelessWidget {
-  const projectsDesktop ({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      height: MediaQuery.of(context).size.height,
-      child: Column(
-        children: [
-          SizedBox(height: 30,),
-          tittle(),
-          SizedBox(height: 50,),
-          targets()
-        ],
-      ),
-   );
-  }
-}
-
-class targets extends StatelessWidget {
-  const targets({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 48.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          projectTarget(
-            appName: 'Bunkapp', 
-            imageRoute: 'assets/images/bunkapp.png', 
-            description: 'App que sirve de guia para los practicantes o interesados en el karate', 
-            enlaceGithub: 'https://github.com/DarioAlarcon/bunkapp', 
-            enlaceDeploy: '',
-          ),
-          SizedBox(width: 70,),
-          projectTarget(
-            imageRoute: 'assets/images/due.png', 
-            appName: 'Due', 
-            description: 'App diseñada para llevar la cuenta de los diferentes deudores', 
-            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
-            enlaceDeploy: '',
-          ),
-          SizedBox(width: 70,),
-          projectTarget(
-            imageRoute: 'assets/images/doona.png', 
-            appName: 'Dooma', 
-            description: 'App diseñada en flutterflow, para llevar a cabo tu manejo de tareas', 
-            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
-            enlaceDeploy: 'https://doona.flutterflow.app/',
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class projectTarget extends StatelessWidget {
-  const projectTarget({super.key, required this.imageRoute, required this.appName, required this.description, required this.enlaceGithub, required this.enlaceDeploy});
- final String enlaceGithub;
- final String enlaceDeploy;
- final String imageRoute;
- final String appName;
- final String description;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: 420,
-        width: 280,
-        decoration: BoxDecoration(
-          boxShadow: [
-             BoxShadow(
-                  color: Colors.grey.withOpacity(0.5), 
-                  spreadRadius: 1, 
-                  blurRadius: 10,
-                  offset: Offset(7, 7), 
-                ),
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          color: Color(0xfff2f2f2)
-        ),
-        child: Column(
-          children: [
-            SizedBox(height: 20,),
-            Text(
-              appName,
-              style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.w700,
-                color: Color(0xff355264)
-              ),
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              child: Image.asset(imageRoute)
-            ),
-            Text(
-              description,
-              style: TextStyle(
-                fontSize: 22,
-                color: Color(0xff355264)
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 5,),
-            codeButton(enlace: enlaceGithub,),
-            SizedBox(height: 5,),
-            deployButton(enlace: enlaceDeploy,),
-          ],
-        ),
-    );
-  }
-}
 
 class codeButton extends StatelessWidget {
   const codeButton({super.key, required this.enlace});
@@ -161,7 +43,7 @@ class codeButton extends StatelessWidget {
       ),
       onPressed: ()=>launchUrl(Uri.parse(enlace)), 
       child: Container(
-        width: 170,
+        width: 150,
         height: 40,
         alignment: Alignment.center,
         child: Text(
@@ -196,7 +78,7 @@ class deployButton extends StatelessWidget {
       ),
       onPressed: ()=>launchUrl(Uri.parse(enlace)), 
       child: Container(
-        width: 170,
+        width: 150,
         height: 40,
         alignment: Alignment.center,
         child: Text(
@@ -212,8 +94,8 @@ class deployButton extends StatelessWidget {
   }
 }
 
-class tittle extends StatelessWidget {
-  const tittle({
+class _tittle extends StatelessWidget {
+  const _tittle({
     super.key,
   });
 
@@ -243,32 +125,8 @@ class tittle extends StatelessWidget {
   }
 }
 
-class tabletProjects extends StatelessWidget {
-  const tabletProjects({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.white,
-        height: MediaQuery.of(context).size.height+50,
-        child: Column(
-          children: [
-            header(),
-            Container(
-              child: miSlideShow(),
-              width: 400,
-              height: 550,
-            )
-          ]
-        ),
-      ),
-    );
-  }
-}
-
-class header extends StatelessWidget {
-  const header({
+class _header extends StatelessWidget {
+  const _header({
     super.key,
   });
 
@@ -283,14 +141,13 @@ class header extends StatelessWidget {
         ),),
         Padding(
           padding: EdgeInsets.only(top: 70),
-          child: tittle()),
+          child: _tittle()),
       ],
     );
   }
 }
 
-
-class miSlideShow extends StatelessWidget {
+class _miSlideShow extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {;
@@ -326,6 +183,42 @@ class miSlideShow extends StatelessWidget {
   }
 }
 
+class _miSlideShowDesktop extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {;
+    
+    return SlidesShow(
+      colorPrim: Color(0xffD7C37B),
+      colorSecu: Colors.grey,
+      //puntosarriba: true,
+      slides: [
+        ProjectTargetDesktop(
+            appName: 'Bunkapp', 
+            imageRoute: 'assets/images/bunkapp.png', 
+            description: 'App que sirve de guia para los practicantes o interesados en el karate', 
+            enlaceGithub: 'https://github.com/DarioAlarcon/bunkapp', 
+            enlaceDeploy: 'https://bunkapp-deploy.vercel.app/#/',
+          ),
+          ProjectTargetDesktop(
+            imageRoute: 'assets/images/due.png', 
+            appName: 'Due', 
+            description: 'App diseñada para llevar la cuenta de los diferentes deudores', 
+            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
+            enlaceDeploy: 'https://due-deploy.vercel.app/#/',
+          ),
+          ProjectTargetDesktop(
+            imageRoute: 'assets/images/doona.png', 
+            appName: 'Dooma', 
+            description: 'App diseñada en flutterflow, para llevar a cabo tu manejo de tareas', 
+            enlaceGithub: 'https://github.com/DarioAlarcon/Due', 
+            enlaceDeploy: 'https://doona.flutterflow.app/',
+          )
+      ],
+    );
+  }
+}
+
 class mobileProject extends StatelessWidget {
   const mobileProject ({super.key});
 
@@ -337,9 +230,9 @@ class mobileProject extends StatelessWidget {
         height: MediaQuery.of(context).size.height+50,
         child: Column(
           children: [
-            header(),
+            _header(),
             Container(
-              child: miSlideShow(),
+              child: _miSlideShow(),
               width: 390,
               height: 550,
             )
@@ -347,5 +240,53 @@ class mobileProject extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class tabletProjects extends StatelessWidget {
+  const tabletProjects({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height+50,
+        child: Column(
+          children: [
+            _header(),
+            Container(
+              child: _miSlideShow(),
+              width: 400,
+              height: 550,
+            )
+          ]
+        ),
+      ),
+    );
+  }
+}
+
+class projectsDesktop extends StatelessWidget {
+  const projectsDesktop ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        children: [
+          SizedBox(height: 30,),
+          _tittle(),
+          SizedBox(height: 50,),
+          Container(
+            height: 450,
+            width: 550,
+            child: _miSlideShowDesktop()
+          )
+        ],
+      ),
+   );
   }
 }
