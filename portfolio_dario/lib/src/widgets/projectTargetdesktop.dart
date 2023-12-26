@@ -56,15 +56,13 @@ const ProjectTargetDesktop({super.key, required this.imageRoute, required this.a
                   height: 150,
                   width: 250,
                   alignment: Alignment.center,
-                  child: Expanded(
-                    child: Text(
-                      description,
-                      style: TextStyle(
-                              fontSize: 22,
-                              color: Color(0xff355264)
-                              ),
-                      textAlign: TextAlign.center,
-                    ),
+                  child: Text(
+                    description,
+                    style: TextStyle(
+                            fontSize: 22,
+                            color: Color(0xff355264)
+                            ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ],

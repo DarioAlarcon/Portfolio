@@ -8,20 +8,21 @@ class AboutView extends ResponsiveWidget {
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return desktopContent();
+    return const desktopContent();
   }
   
   @override
   Widget buildMobile(BuildContext context) {
-    return mobileContent();
+    return const mobileContent();
   }
   
   @override
   Widget buildTablet(BuildContext context) {
-    return tabletContent();
+    return const tabletContent();
   }
 }
 
+// ignore: camel_case_types
 class desktopContent extends StatelessWidget {
   const desktopContent({super.key});
 
@@ -30,13 +31,13 @@ class desktopContent extends StatelessWidget {
     return Container(
       color: Colors.white,
       height: MediaQuery.of(context).size.height,
-      child: Row(
+      child: const Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           textDescription(),
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 20),
             child: profileImage(),
           )
         ],
@@ -45,6 +46,7 @@ class desktopContent extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class profileImage extends StatelessWidget {
   const profileImage({
     super.key,
@@ -53,11 +55,11 @@ class profileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: MediaQuery.of(context).size.width<1000? EdgeInsets.only(top: 0, left: 10, right: 10) :EdgeInsets.only(top: 80),
+      margin: MediaQuery.of(context).size.width<1000? const EdgeInsets.only(top: 0, left: 10, right: 10) :const EdgeInsets.only(top: 80),
       height: 493,
       width: 347,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      decoration: const BoxDecoration(
         color: Color(0xffD7C37B),
         borderRadius: BorderRadius.all(Radius.circular(15))
       ),
@@ -66,6 +68,7 @@ class profileImage extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class textDescription extends StatelessWidget {
   const textDescription({
     super.key,
@@ -73,7 +76,7 @@ class textDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return  const Padding(
       padding: EdgeInsets.only(top: 60, left: 70),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +100,7 @@ class textDescription extends StatelessWidget {
           ),
           SizedBox(height: 60,),
           Padding(
-            padding: const EdgeInsets.only(left: 90),
+            padding: EdgeInsets.only(left: 90),
             child: cvButton(color: Color(0xff355264), fontsize: 36, height: 70,),
           ),
         ],
@@ -106,6 +109,7 @@ class textDescription extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class cvButton extends StatelessWidget {
   const cvButton({
     super.key, required this.color, required this.fontsize, required this.height,
@@ -118,7 +122,7 @@ class cvButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           backgroundColor: color,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(15))
           )  
       ),
@@ -159,7 +163,7 @@ class Dariotext extends StatelessWidget {
         Text(
           ' Dario',
           style: TextStyle(
-            color: Color(0xffD7C37B),
+            color: const Color(0xffD7C37B),
             fontSize: fontSize,
             fontWeight: FontWeight.bold
           ),
@@ -176,6 +180,7 @@ class Dariotext extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class tabletContent extends StatelessWidget {
   const tabletContent({super.key});
 
@@ -188,16 +193,16 @@ class tabletContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          profileImage(),
-          SizedBox(height: 20,),
+          const profileImage(),
+          const SizedBox(height: 20,),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
             color: Colors.white,
             ),
             alignment: Alignment.center,
             width: double.infinity,
             height: 40,
-            child: Text(
+            child: const Text(
               'Desarrollador Frontend', 
               style: TextStyle(
                 color: Color(0xff355264),
@@ -218,6 +223,7 @@ class tabletContent extends StatelessWidget {
 }
 //
 
+// ignore: camel_case_types
 class mobileContent extends StatelessWidget {
   const mobileContent({super.key});
 
@@ -230,17 +236,17 @@ class mobileContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 30,),
-          profileImage(),
-          SizedBox(height: 20,),
+          const SizedBox(height: 30,),
+          const profileImage(),
+          const SizedBox(height: 20,),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
             color: Colors.white,
             ),
             alignment: Alignment.center,
             width: double.infinity,
             height: 40,
-            child: Text(
+            child: const Text(
               'Desarrollador Frontend', 
               style: TextStyle(
                 color: Color(0xff355264),
@@ -252,7 +258,7 @@ class mobileContent extends StatelessWidget {
             width: double.infinity,
             height: 84,
             color: Colors.white,
-            child: Dariotext()
+            child: const Dariotext()
           ),
         ],
       ),
