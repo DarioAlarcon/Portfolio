@@ -25,15 +25,15 @@ class projectTarget extends StatelessWidget {
                   offset: Offset(7, 7), 
                 ),
           ],
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          color: Color(0xfff2f2f2)
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
+          color: const Color(0xfff2f2f2)
         ),
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Text(
               appName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.w700,
                 color: Color(0xff355264)
@@ -46,15 +46,15 @@ class projectTarget extends StatelessWidget {
             ),
             Text(
               description,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 22,
                 color: Color(0xff355264)
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             codeButton(enlace: enlaceGithub,),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             deployButton(enlace: enlaceDeploy,),
           ],
         ),

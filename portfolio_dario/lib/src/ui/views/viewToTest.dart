@@ -6,7 +6,7 @@ class viewTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: ProjectTargetDesktop(imageRoute: "assets/images/bunkapp.png", appName: "Bunkap", description: "App que sirve de guia para los practicantes o interesados en el karate", enlaceGithub: "enlaceGithub", enlaceDeploy: "enlaceDeploy"),
       ),

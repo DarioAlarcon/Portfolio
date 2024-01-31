@@ -26,9 +26,9 @@ class skillsDektop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
+      color: const Color(0xff355264),
       height: MediaQuery.of(context).size.height,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -49,10 +49,10 @@ class dividerLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       width: MediaQuery.of(context).size.width*0.9,
       height: 5,
-      decoration: BoxDecoration(
+      decoration:const  BoxDecoration(
          color: Color(0xffD7C37B),
          borderRadius: BorderRadius.all(Radius.circular(10))
       ),
@@ -94,7 +94,7 @@ class tittle extends StatelessWidget {
           ' mejores',
           style: TextStyle(
             fontSize: tamano,
-            color: Color(0xffD7C37B),
+            color: const Color(0xffD7C37B),
             fontWeight: FontWeight.bold
           ),
         ),
@@ -115,7 +115,7 @@ class targets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -172,9 +172,9 @@ class tabletSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
+      color: const Color(0xff355264),
       height: MediaQuery.of(context).size.height+120,
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
         children: [
           SizedBox(height: 50,),
@@ -236,8 +236,8 @@ class mobileSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
-      child: SingleChildScrollView(
+      color: const Color(0xff355264),
+      child: const SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 50,),

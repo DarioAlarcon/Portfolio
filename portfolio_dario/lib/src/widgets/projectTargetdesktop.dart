@@ -13,7 +13,7 @@ const ProjectTargetDesktop({super.key, required this.imageRoute, required this.a
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         height: 340,
         width: 490,
         decoration: BoxDecoration(
@@ -22,11 +22,11 @@ const ProjectTargetDesktop({super.key, required this.imageRoute, required this.a
                   color: Colors.grey.withOpacity(0.5), 
                   spreadRadius: 1, 
                   blurRadius: 10,
-                  offset: Offset(7, 7), 
+                  offset: const Offset(7, 7), 
                 ),
           ],
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          color: Color(0xfff2f2f2)
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
+          color: const Color(0xfff2f2f2)
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,7 +38,7 @@ const ProjectTargetDesktop({super.key, required this.imageRoute, required this.a
                   children: [
                     Text(
                       appName,
-                      style: TextStyle(
+                      style: const TextStyle(
                               fontSize: 35,
                               fontWeight: FontWeight.w700,
                               color: Color(0xff355264)
@@ -52,13 +52,13 @@ const ProjectTargetDesktop({super.key, required this.imageRoute, required this.a
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 50),
+                  margin: const EdgeInsets.only(top: 50),
                   height: 150,
                   width: 250,
                   alignment: Alignment.center,
                   child: Text(
                     description,
-                    style: TextStyle(
+                    style: const TextStyle(
                             fontSize: 22,
                             color: Color(0xff355264)
                             ),

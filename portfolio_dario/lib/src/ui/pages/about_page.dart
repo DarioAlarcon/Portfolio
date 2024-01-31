@@ -12,17 +12,17 @@ class AboutPage extends ResponsiveWidget {
 
   @override
   Widget buildMobile(BuildContext context) {
-    return Mobile_aboutPage();
+    return const Mobile_aboutPage();
   }
 
   @override
   Widget buildTablet(BuildContext context) {
-    return tablet_aboutPage();
+    return const tablet_aboutPage();
   }
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return desktop_aboutPage();
+    return const desktop_aboutPage();
   }
   
 }
@@ -36,17 +36,17 @@ class Mobile_aboutPage extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
-            _about_body(),
+            const _about_body(),
             Container(
-              margin: EdgeInsets.only(left: 5, top: 5),
+              margin: const EdgeInsets.only(left: 5, top: 5),
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 color: Color(0xff355264),
               ),  
             ),
-            NavBar()
+            const NavBar()
           ],
         ),
       ),
@@ -70,7 +70,7 @@ class tablet_aboutPage extends StatelessWidget {
               margin: EdgeInsets.only(left: 5, top: 5),
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 color: Color(0xff355264),
               ),  
@@ -92,17 +92,17 @@ class desktop_aboutPage extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
-            _about_body(),
+            const _about_body(),
             Container(
-              margin: EdgeInsets.only(left: 5, top: 5),
+              margin: const EdgeInsets.only(left: 5, top: 5),
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 color: Color(0xff355264),
               ),  
             ),
-            NavBar()
+            const NavBar()
           ],
         ),
       ),
@@ -118,7 +118,7 @@ class _about_body extends StatelessWidget {
     return PageView(
       controller: pageProvider.scrollController,
       scrollDirection: Axis.vertical,
-      children: [
+      children: const [
         AboutView(),
         skillsView(),
         ProjectsView(),

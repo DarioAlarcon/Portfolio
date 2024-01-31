@@ -19,7 +19,7 @@ const SlidesShow({
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => new _SlideshowModel(),
+      create: (_) =>  _SlideshowModel(),
      child: SafeArea(
        child: Center(
             child:Builder(
@@ -152,7 +152,7 @@ class _Slide extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: slide,
     );
   }

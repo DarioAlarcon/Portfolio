@@ -126,7 +126,7 @@ class cvButton extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(15))
           )  
       ),
-      onPressed: ()=>launchUrl(Uri.parse("https://drive.google.com/file/d/1_QkZQm4JxhUyYmTqZJy4yPEX4sK0h5am/view?usp=sharing")),
+      onPressed: ()=>launchUrl(Uri.parse("https://drive.google.com/file/d/1BIGpv2UzBhVZNGhlRXFU-ayzDBdCTgbo/view?usp=sharing")),
       child: Container(
         alignment: Alignment.center,
         height: height,
@@ -214,7 +214,7 @@ class tabletContent extends StatelessWidget {
             width: double.infinity,
             height: 124,
             color: Colors.white,
-            child: Dariotext()
+            child: const Dariotext()
           ),
         ],
       ),

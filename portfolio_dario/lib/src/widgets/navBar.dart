@@ -70,11 +70,11 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                    boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.3),
-                  offset: Offset(5, 5),
+                  offset: const Offset(5, 5),
                   blurRadius: 10,
                 ),
               ],
-                  color: Color(0xff355269),
+                  color: const Color(0xff355269),
                   borderRadius: BorderRadius.horizontal(
                     right: Radius.elliptical(isSideNavOpen? 0.0:
                       navbarsize, MediaQuery.of(context).size.height/2
@@ -93,8 +93,8 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin{
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Skills", onpressed: ()=>pageProvider.goTo(1)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Projects", onpressed: ()=>pageProvider.goTo(2)),
                           optionsNavBar(navBarModel: navBarModel, navbarsize: navbarsize, isSideNavOpen: isSideNavOpen, title: "Contact", onpressed: ()=>pageProvider.goTo(3)),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20, right: 20, top: 250),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 20, right: 20, top: 250),
                             child: cvButton(color: Color(0xffD7C37B), fontsize: 24, height: 50,),
                           )
                         ]: [
@@ -163,11 +163,9 @@ class optionsNavBar extends StatelessWidget {
     return MouseRegion(
       onEnter: (event) {
         navBarModel.setHoveredTitle(title);
-        print('entro');
       },
       onExit: (event) {
         navBarModel.setHoveredTitle(null);
-        print('salio');
       },
       child: GestureDetector(
         onTap: ()=>onpressed(),
@@ -182,17 +180,17 @@ class optionsNavBar extends StatelessWidget {
                 AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 300),
                   style: navBarModel.hoveredTitle == null 
-                    ? TextStyle(
+                    ? const TextStyle(
                         color: Colors.white,
                         fontSize: 24.0,
                         fontWeight: FontWeight.w500
                     )
                     : navBarModel.hoveredTitle== title
-                    ? TextStyle(
+                    ? const TextStyle(
                         color: Colors.white,
                         fontSize: 24.0,
                         fontWeight: FontWeight.w500
-                    ):TextStyle(
+                    ):const TextStyle(
                         color: Colors.white60,
                         fontSize: 24.0,
                         fontWeight: FontWeight.w500

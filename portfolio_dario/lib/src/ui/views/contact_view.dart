@@ -10,18 +10,17 @@ class ContactView extends ResponsiveWidget {
   
   @override
   Widget buildDesktop(BuildContext context) {
-    return contentDesktop();
+    return const contentDesktop();
   }
   
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    return mobileContact();
+    return const mobileContact();
   }
   
   @override
   Widget buildTablet(BuildContext context) {
-    return tabletContact();
+    return const tabletContact();
   }
 }
 
@@ -31,14 +30,14 @@ class contentDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
+      color: const Color(0xff355264),
       height: MediaQuery.of(context).size.height-120,
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 50,),
           Padding(
-            padding: const EdgeInsets.only(left: 100.0),
+            padding: EdgeInsets.only(left: 100.0),
             child: texto(),
           ),
           SizedBox(height: 110,),
@@ -61,19 +60,22 @@ class enlaces extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        iconLink(
+        const iconLink(
           imageRoute: 'assets/images/gitHub.png',
           label: 'Sigueme', 
-          url: '_',
+          url: 'https://github.com/DarioAlarcon',
         ),
         SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
-        iconLink(
-          imageRoute: 'assets/images/mail.png',
-          label: 'Escribeme', 
-          url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqXxQWzzzRDQhmDPXsknDNPCSqxrlrqmlCSdVswXHPjgBhlmfLGSxvrcHsqKvWzkPkcnxV',
+        const Tooltip(
+          message: "darioalarcon832@gmail.com",
+          child: iconLink(
+            imageRoute: 'assets/images/mail.png',
+            label: 'Escribeme', 
+            url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqXxQWzzzRDQhmDPXsknDNPCSqxrlrqmlCSdVswXHPjgBhlmfLGSxvrcHsqKvWzkPkcnxV',
+          ),
         ),
         SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
-        iconLink(
+        const iconLink(
           imageRoute: 'assets/images/linkedin.png',
           label: 'Contactame', 
           url: 'https://www.linkedin.com/in/dario-alarcon-4703341b0/',
@@ -83,19 +85,22 @@ class enlaces extends StatelessWidget {
     :Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        iconLink(
+        const iconLink(
           imageRoute: 'assets/images/gitHub.png',
           label: 'Sigueme', 
-          url: '_',
+          url: 'https://github.com/DarioAlarcon',
         ),
         SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
-        iconLink(
-          imageRoute: 'assets/images/mail.png',
-          label: 'Escribeme', 
-          url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqXxQWzzzRDQhmDPXsknDNPCSqxrlrqmlCSdVswXHPjgBhlmfLGSxvrcHsqKvWzkPkcnxV',
+        const Tooltip(
+          message: "darioalarcon832@gmail.com",
+          child: iconLink(
+            imageRoute: 'assets/images/mail.png',
+            label: 'Escribeme', 
+            url: 'https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqXxQWzzzRDQhmDPXsknDNPCSqxrlrqmlCSdVswXHPjgBhlmfLGSxvrcHsqKvWzkPkcnxV',
+          ),
         ),
         SizedBox(width:  MediaQuery.of(context).size.width<1000?20:150,),
-        iconLink(
+        const iconLink(
           imageRoute: 'assets/images/linkedin.png',
           label: 'Contactame', 
           url: 'https://www.linkedin.com/in/dario-alarcon-4703341b0/',
@@ -118,7 +123,7 @@ class texto extends StatelessWidget {
         Text(
           'Contáctame',
           style: TextStyle(
-            color: Color(0xffd7c37b),
+            color: const Color(0xffd7c37b),
             fontSize: MediaQuery.of(context).size.width<500?45:70,
             fontWeight: FontWeight.bold
           ),
@@ -143,9 +148,9 @@ class tabletContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
+      color: const Color(0xff355264),
       height: MediaQuery.of(context).size.height,
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 50,),
@@ -163,16 +168,16 @@ class mobileContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff355264),
+      color: const Color(0xff355264),
        height: MediaQuery.of(context).size.height,
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 50,),
           texto(),
           SizedBox(height: 50,),
           Padding(
-            padding: const EdgeInsets.only(left: 50),
+            padding: EdgeInsets.only(left: 50),
             child: enlaces(),
           )
         ],)
